@@ -38,7 +38,13 @@ class Application extends CI_Controller {
 
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
+
+    //convert Caboose output into view parameters
+    $this->data['caboose_styles'] = $this->caboose->styles();
+    $this->data['caboose_scripts'] = $this->caboose->scripts();
+    $this->data['caboose_trailings'] = $this->caboose->trailings();
 		$this->parser->parse('_template', $this->data);
+
 	}
 
 }
